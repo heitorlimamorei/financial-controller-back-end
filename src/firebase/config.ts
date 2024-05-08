@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
 
 dotenv.config();
 
@@ -11,7 +11,7 @@ const firebaseConfig = {
   projectId: process.env.FIREBASE_PROJECT_ID,
   appId: process.env.APP_ID,
   messagingSenderId: process.env.MESSAGING_SENDER_ID,
-  storageBucket: process.env.storageBucket
+  storageBucket: process.env.storageBucket,
 };
 
 const app = initializeApp(firebaseConfig);
