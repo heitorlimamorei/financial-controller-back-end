@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import userRouter from './routes/user.routes';
 
 import { auth } from 'express-oauth2-jwt-bearer';
+import sheetRouter from './routes/sheet.routes';
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/v1/user', checkJWT, userRouter);
+app.use('/api/v1/sheet', checkJWT, sheetRouter);
 
 app.use((err: Error, req: Request, res: Response) => {
   if (err.message) {
