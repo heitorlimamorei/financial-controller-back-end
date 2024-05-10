@@ -1,25 +1,19 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import userRouter from './routes/user.routes';
 
-import { auth } from 'express-oauth2-jwt-bearer';
+import userRouter from './routes/user.routes';
 import sheetRouter from './routes/sheet.routes';
 
 dotenv.config();
-
-const checkJWT = auth({
-  audience: process.env.AUTH0_IDENTIFIER,
-  issuerBaseURL: process.env.AUTH0_ISSUER_BASE_URL,
-});
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/v1/user', checkJWT, userRouter);
-app.use('/api/v1/sheet', checkJWT, sheetRouter);
+app.use('/api/v1/user', userRouter);
+app.use('/api/v1/sheet', sheetRouter);
 
 app.use((err: Error, req: Request, res: Response) => {
   if (err.message) {
