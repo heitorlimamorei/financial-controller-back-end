@@ -26,7 +26,7 @@ export default function getSheetRepository(db: Firestore) {
       generateRepositoryError(`SHEET NOT FOUND - ID: ${id}`, 404);
     }
 
-    return sheetRef.data() as ISheet;
+    return { id: sheetRef.id, ...sheetRef.data() } as ISheet;
   }
 
   async function ShowItems(id: string): Promise<ISheetItem[]> {
