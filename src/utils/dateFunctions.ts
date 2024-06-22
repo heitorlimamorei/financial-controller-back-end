@@ -33,3 +33,10 @@ export const toggleJsonToDate = (date: string) => {
     throw new Error('This method supports only string');
   return new Date(date);
 };
+
+export const getWeekOfMonth = (date: Date): number => {
+  const startOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
+  const startDayOfWeek = startOfMonth.getDay();
+  const currentDayOfMonth = date.getDate();
+  return Math.ceil((currentDayOfMonth + startDayOfWeek) / 7);
+};

@@ -16,7 +16,7 @@ export interface ISheetService {
 export default function getSheetService(
   repository: ISheetRepository,
   userSvc: IUserService,
-) {
+): ISheetService {
   async function Show(id: string): Promise<ISheet> {
     const sheet = await repository.Show(id);
     return sheet;

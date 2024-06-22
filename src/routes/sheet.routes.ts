@@ -20,5 +20,6 @@ const sheetRouter = express.Router();
 sheetRouter.get('/:id', controller.Show);
 sheetRouter.get('/:id/items', controller.ShowItems);
 sheetRouter.get('/displaydata/:u', controller.ShowDisplayData);
+sheetRouter.post('/verifytask', controller.VerifyTask);
 
 export default sheetRouter;
