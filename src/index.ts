@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 
 import userRouter from './routes/user.routes';
 import sheetRouter from './routes/sheet.routes';
+import feedbackRouter from './routes/feedback.routes';
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ app.use(express.json());
 
 app.use('/api/v1/user', userRouter);
 app.use('/api/v1/sheet', sheetRouter);
+app.use('/api/v1/feedback', feedbackRouter);
 
 app.use((err: Error, req: Request, res: Response) => {
   if (err.message) {
